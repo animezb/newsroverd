@@ -192,7 +192,7 @@ class ElasticSinkSetup(object):
 					"server_article_id": {
 						"type":"long",
 						"include_in_all": False,
-					}
+					},
 					"added": {
 						"type": "date",
 						"format": "date_time_no_millis",
