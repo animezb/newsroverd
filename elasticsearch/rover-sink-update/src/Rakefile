@@ -1,0 +1,18 @@
+require 'fileutils'
+task :compile do
+  source = FileList['**/*.java']
+  sh "javac #{source.collect {|s| "'#{s}'" }.join(' ')}  -classpath \"/usr/local/Cellar/elasticsearch/1.0.1/libexec/elasticsearch-1.0.1.jar:/usr/local/Cellar/elasticsearch/1.0.1/libexec/trove-3.0.3.jar:/usr/local/Cellar/elasticsearch/1.0.1/libexec/commons-codec-1.9.jar\""
+end
+
+task :clean do
+  FileUtils::Verbose.rm Dir.glob("**/*.class")
+end
+
+task :package do
+  objects = FileList['**/*.class']
+  sh "jar cf RoverSinkScript.jar #{objects.collect {|s| "'#{s}'" }.join(' ')}"
+  sh "cp RoverSinkScript.jar /usr/local/Cellar/elasticsearch/1.0.1/libexec"
+  sh "cp RoverSinkScript.jar ../../dist"
+end
+
+task :build => [:clean, :compile, :package]

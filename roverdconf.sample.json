@@ -1,0 +1,34 @@
+{
+	"logfile":"",
+	"logfile_comment":"Path to a file, or empty string to print to stdout.",
+	"newsgroups":[
+		{
+			"host":"news.host.com:119",
+			"ssl":false,
+			"newsgroup":"alt.binaries.anime",
+			"auth_user":"my_user (empty for no user)",
+			"auth_pass":"my_pass",
+			"check_every":60,
+			"flush_every":60,
+			"max_buffered_articles":131072,
+			"start_at_article":0,
+			"no_article_to_process":0,
+			"progress":"/var/lib/newsroverd/a.b.anime",
+			"progress_comment":"Can be empty."
+		}
+	],
+	"sinks":[
+		{
+			"name":"standard",
+			"options":{}
+		},
+		{
+			"name":"elasticsearch",
+			"options":{
+				"host":"localhost",
+				"port":9200,
+				"workers":1
+			}
+		}
+	]
+}
