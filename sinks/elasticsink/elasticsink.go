@@ -110,6 +110,7 @@ type Segment struct {
 	Bytes           int64     `json:"bytes"`
 	Part            int       `json:"part"`
 	Length          int       `json:"length"`
+	Added           time.Time `json:"added"`
 }
 
 type updateCommit struct {
@@ -131,6 +132,7 @@ func createSegment(article newsrover.Article) Segment {
 		Bytes:           article.Bytes,
 		Length:          extract.ExtractYencLength(article.Subject),
 		Part:            extract.ExtractYencPart(article.Subject),
+		Added:           time.Now(),
 	}
 }
 
