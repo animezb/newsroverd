@@ -51,6 +51,9 @@ public class RoverUpdateScript extends AbstractExecutableScript {
 		if (isInteger(extension)) {
 			return "split";
 		}
+		if (extension.startsWith("r") && isInteger(extension.substring(1))) {
+			return "rar";
+		}
 		return extension;
 	}
 
