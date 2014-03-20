@@ -60,7 +60,7 @@ class ElasticSinkSetup(object):
 					},
 					"date": {
 						"type": "date",
-						"format": "date_time_no_millis",
+						"format": "date_time_no_millis||date_time",
 						"include_in_all": False,
 						"store":True,
 					},
@@ -126,7 +126,7 @@ class ElasticSinkSetup(object):
 					},
 					"date": {
 						"type": "date",
-						"format": "date_time_no_millis",
+						"format": "date_time_no_millis||date_time",
 						"include_in_all": False,
 					},
 					"group": {
@@ -178,7 +178,7 @@ class ElasticSinkSetup(object):
 					},
 					"date": {
 						"type": "date",
-						"format": "date_time_no_millis",
+						"format": "date_time_no_millis||date_time",
 						"include_in_all": False,
 					},
 					"group": {
@@ -195,7 +195,7 @@ class ElasticSinkSetup(object):
 					},
 					"added": {
 						"type": "date",
-						"format": "date_time_no_millis",
+						"format": "date_time||date_time_no_millis",
 						"include_in_all": False,
 					}
 				 }
