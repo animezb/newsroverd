@@ -61,6 +61,7 @@ func ctrlc(stop chan<- bool) {
 func main() {
 	flag.Parse()
 	runtime.GOMAXPROCS(runtime.NumCPU())
+
 	go func() {
 		log.Println(http.ListenAndServe("localhost:6060", nil))
 	}()
@@ -110,6 +111,10 @@ func main() {
 			generalLog.Printf("Error with sink %s: %s", c.Name, err.Error())
 		}
 	}
+
+	generalLog.Printf("-------------")
+	generalLog.Printf("Starting NewsRoverd")
+	generalLog.Printf("-------------")
 
 	if len(newsSinks) == 0 {
 		generalLog.Println("No sinks configured, no where to send work to. Quitting...")
