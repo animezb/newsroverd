@@ -132,7 +132,7 @@ func createSegment(article newsrover.Article) Segment {
 		Bytes:           article.Bytes,
 		Length:          extract.ExtractYencLength(article.Subject),
 		Part:            extract.ExtractYencPart(article.Subject),
-		Added:           time.Now(),
+		Added:           time.Now().UTC(),
 	}
 }
 
